@@ -14,5 +14,5 @@ interface CachedUserLocationDao {
     suspend fun insert(cachedUserLocation: CachedUserLocation)
 
     @Query("SELECT * FROM cacheduserlocation ORDER BY timeInMillis")
-    fun getUserLocationsFlow(): Flow<CachedUserLocation>
+    fun getUserLocationsFlow(): Flow<List<CachedUserLocation>>
 }

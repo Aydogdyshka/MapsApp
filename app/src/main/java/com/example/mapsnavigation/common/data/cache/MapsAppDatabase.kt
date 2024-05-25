@@ -9,7 +9,8 @@ import com.example.mapsnavigation.common.data.cache.model.CachedUserLocation
     entities = [
         CachedUserLocation::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class MapsAppDatabase: RoomDatabase() {
     abstract fun userLocationDao(): CachedUserLocationDao

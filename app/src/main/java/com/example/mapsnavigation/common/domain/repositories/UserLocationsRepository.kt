@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserLocationsRepository {
     suspend fun saveUserLocation(userLocation: UserLocation)
-    fun getUserLocationsFlow(): Flow<UserLocation>
+    fun getUserLocationsFlow(): Flow<List<UserLocation>>
 }

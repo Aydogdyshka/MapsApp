@@ -1,6 +1,5 @@
 package com.example.mapsnavigation.common.data.repositories
 
-import com.example.mapsnavigation.common.data.cache.MapsAppDatabase
 import com.example.mapsnavigation.common.data.cache.daos.CachedUserLocationDao
 import com.example.mapsnavigation.common.data.cache.model.CachedUserLocation
 import com.example.mapsnavigation.common.domain.model.UserLocation
@@ -16,7 +15,7 @@ class MapsUserLocationRepo @Inject constructor(
        userLocationDao.insert(CachedUserLocation.fromDomain(userLocation))
     }
 
-    override fun getUserLocationsFlow(): Flow<UserLocation> {
-       return userLocationDao.getUserLocationsFlow().map { it.toDomain() }
+    override fun getUserLocationsFlow(): Flow<List<UserLocation>> {
+       return userLocationDao.getUserLocationsFlow().map { it.map { it.toDomain() }}
     }
 }
